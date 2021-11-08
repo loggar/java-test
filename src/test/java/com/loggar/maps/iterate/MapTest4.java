@@ -9,7 +9,7 @@ public class MapTest4 {
   public void collect() {
     Map<String, Employee> map = new HashMap<>();
 
-    Employee employee1 = new Employee(1L, "Mher", 100);
+    Employee employee1 = new Employee(1L, "Tom", 100);
     map.put(employee1.getName(), employee1);
     Employee employee2 = new Employee(22L, "Annie", 200);
     map.put(employee2.getName(), employee2);
@@ -20,6 +20,7 @@ public class MapTest4 {
 
     map.entrySet().stream().sorted(Map.Entry.comparingByValue()).forEach(System.out::println);
 
+    @SuppressWarnings("unused")
     Map<String, Employee> result = map.entrySet().stream().sorted(Map.Entry.comparingByValue()).collect(
         Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue, (oldValue, newValue) -> oldValue, LinkedHashMap::new));
   }
